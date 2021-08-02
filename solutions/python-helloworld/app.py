@@ -4,6 +4,7 @@ import logging
 
 app = Flask(__name__)
 
+#End point - status
 @app.route('/status')
 def healthcheck():
     response = app.response_class(
@@ -15,6 +16,7 @@ def healthcheck():
     app.logger.info('Status request successfull')
     return response
 
+#Endpoint - metrics
 @app.route('/metrics')
 def metrics():
     response = app.response_class(
@@ -26,6 +28,7 @@ def metrics():
     app.logger.info('Metrics request successfull')
     return response
 
+#Main homepage returns Helloworld
 @app.route("/")
 def hello():
     app.logger.info('Main request successfull')
